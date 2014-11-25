@@ -10,3 +10,15 @@ _demo:
     resource: "@AcmeDemoBundle/Controller/DemoController.php"
     type:     annotation
     prefix:   /demo
+
+random:
+    path:     /random/{limit}
+    defaults: { _controller: AcmeDemoBundle:Random:index }
+    
+email:
+    path:     /email/{number}
+    defaults: { _controller: AcmeDemoBundle:Email:local }
+    
+_email_view:
+    path: /view/{id}
+    defaults: { _controller: AcmeDemoBundle:Email:view }

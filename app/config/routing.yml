@@ -1,0 +1,12 @@
+acme_store:
+    resource: "@AcmeSuperStoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+mayank_crud:
+    resource: "@MayankCrudBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+
+
+
