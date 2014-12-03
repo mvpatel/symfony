@@ -1,12 +1,9 @@
-acme_store:
-    resource: "@AcmeSuperStoreBundle/Controller/"
-    type:     annotation
+acme_user:
+    resource: "@AcmeUserBundle/Resources/config/routing.yml"
     prefix:   /
 
-mayank_crud:
-    resource: "@MayankCrudBundle/Resources/config/routing.yml"
-    prefix:   /
-    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"    
 
 
 

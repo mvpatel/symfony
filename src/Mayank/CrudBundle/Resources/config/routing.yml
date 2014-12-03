@@ -1,3 +1,0 @@
-weather_page:
-    path:     /weather/{city}
-    defaults: { _controller: MayankCrudBundle:Default:index, city: "New York" }
