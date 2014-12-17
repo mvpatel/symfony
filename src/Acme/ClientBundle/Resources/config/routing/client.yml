@@ -1,0 +1,30 @@
+client:
+    path:     /
+    defaults: { _controller: "AcmeClientBundle:Client:index" }
+
+client_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeClientBundle:Client:show" }
+
+client_new:
+    path:     /new
+    defaults: { _controller: "AcmeClientBundle:Client:new" }
+
+client_create:
+    path:     /create
+    defaults: { _controller: "AcmeClientBundle:Client:create" }
+    requirements: { _method: post }
+
+client_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeClientBundle:Client:edit" }
+
+client_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeClientBundle:Client:update" }
+    requirements: { _method: post|put }
+
+client_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeClientBundle:Client:delete" }
+    requirements: { _method: post|delete }

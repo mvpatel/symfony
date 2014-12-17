@@ -1,0 +1,107 @@
+tr\rsywxBundle\Entity\BookBook:
+    type: entity
+    repositoryClass: tr\rsywxBundle\Entity\BookRepository
+    table: book_book
+    fields:
+        id:
+            id: true
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        title:
+            type: string
+            length: 200
+            fixed: false
+            nullable: false
+        author:
+            type: string
+            length: 200
+            fixed: false
+            nullable: false
+        region:
+            type: string
+            length: 40
+            fixed: false
+            nullable: false
+        copyrighter:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+        translated:
+            type: boolean
+            nullable: false
+        purchdate:
+            type: date
+            nullable: false
+        price:
+            type: float
+            nullable: false
+        pubdate:
+            type: date
+            nullable: false
+        printdate:
+            type: date
+            nullable: false
+        ver:
+            type: string
+            length: 5
+            fixed: false
+            nullable: false
+        deco:
+            type: string
+            length: 6
+            fixed: false
+            nullable: false
+        kword:
+            type: integer
+            unsigned: false
+            nullable: false
+        page:
+            type: integer
+            unsigned: false
+            nullable: false
+        isbn:
+            type: string
+            length: 17
+            fixed: false
+            nullable: false
+        category:
+            type: string
+            length: 12
+            fixed: false
+            nullable: false
+        location:
+            type: string
+            length: 2
+            fixed: false
+            nullable: false
+        intro:
+            type: text
+            nullable: false
+        instock:
+            type: boolean
+            nullable: false
+    manyToOne:
+        place:
+            targetEntity: BookPlace
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                place:
+                    referencedColumnName: id
+            orphanRemoval: false
+        publisher:
+            targetEntity: BookPublisher
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                publisher:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

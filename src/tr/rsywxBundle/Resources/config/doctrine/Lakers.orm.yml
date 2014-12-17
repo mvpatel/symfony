@@ -1,0 +1,40 @@
+tr\rsywxBundle\Entity\Lakers:
+    type: entity
+    repositoryClass: tr\rsywxBundle\Entity\LakersRepository
+    table: lakers
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+        year:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+        team:
+            type: string
+            length: 10
+            fixed: false
+            nullable: false
+        selfscore:
+            type: integer
+            unsigned: false
+            nullable: false
+        oppscore:
+            type: integer
+            unsigned: false
+            nullable: false
+        dateplayed:
+            type: date
+            nullable: false
+        winlose:
+            type: string
+            length: 1
+            fixed: false
+            nullable: false
+        remark:
+            type: text
+            nullable: false
+    lifecycleCallbacks: {  }

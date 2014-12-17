@@ -1,0 +1,28 @@
+acme_account_user:
+    resource: "@AcmeAccountBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+# src/Acme/AccountBundle/Resources/config/routing.yml
+default_account:
+    path:     /account/{name}
+    defaults: { _controller: AcmeAccountBundle:Default:index }
+    
+account_register:
+    path:     /registerform
+    defaults: { _controller: AcmeAccountBundle:Account:register }
+
+account_create:
+    path:     /register/create
+    defaults: { _controller: AcmeAccountBundle:Account:create }
+    
+account_made:
+    path:     /made
+    defaults: { _controller: AcmeAccountBundle:Account:made }    
+    
+alluser:
+    path:     /alluser
+    defaults: { _controller: AcmeAccountBundle:Account:alluser }
+    
+updateuser:
+    path: /updateuser/{id}
+    defaults: {_controller: AcmeAccountBundle:Account:updateuser}

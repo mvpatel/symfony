@@ -1,0 +1,21 @@
+tr\rsywxBundle\Entity\Qotd:
+    type: entity
+    repositoryClass: tr\rsywxBundle\Entity\QotdRepository
+    table: qotd
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        quote:
+            type: text
+            nullable: false
+        source:
+            type: string
+            length: 200
+            fixed: false
+            nullable: false
+    lifecycleCallbacks: {  }

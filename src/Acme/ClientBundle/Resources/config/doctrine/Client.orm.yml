@@ -1,0 +1,40 @@
+Acme\ClientBundle\Entity\Client:
+    type: entity
+    table: null
+    repositoryClass: Acme\ClientBundle\Entity\ClientRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        firstName:
+            type: string
+            length: 255
+            column: first_name
+        lastName:
+            type: string
+            length: 255
+            column: last_name
+        clientEmail:
+            type: string
+            length: 255
+            column: client_email
+        clientMobile:
+            type: string
+            length: 255
+            column: client_mobile
+        clientGender:
+            type: string
+            length: 255
+            column: client_gender
+        clientCar:
+            type: string
+            length: 255
+            column: client_car
+        clientCarName:
+            type: string
+            length: 255
+            column: client_car_name
+    lifecycleCallbacks: {  }

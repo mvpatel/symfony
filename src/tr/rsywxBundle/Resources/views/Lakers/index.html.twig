@@ -1,0 +1,44 @@
+{% set active=5 %}
+{% extends 'trrsywxBundle:Default:index.html.twig' %} 
+
+{% block title %}<title>RSYWX | Lakers | Season {{year}}-{{year+1}}</title>{% endblock %}
+{% block description %}<meta name="description" content="">{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="hero-unit">
+        <a href="http://www.nba.com/lakers/"><img class="pull-right" src="/img/Lakers.jpg" alt="Lakers"/></a><h2>Lakers Season {{year}}-{{year+1}}Scores</h2>
+        <p>Regular/Play Offs: Win {{win}}, Lost {{lose}}, Percentage {{p}}%</p>
+        <p>Other Seasons:
+        {% for y in years%}
+                <a href="{{path('lakers', {'year':y.year})}}">{{y.year}}</a>&nbsp;
+            {%endfor %}
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="span12">
+                <table class='table table-striped'>
+                    <tr>
+                        <td><strong>Game</strong></td>
+                        <td><strong>Teams</strong></td>
+                        <td><strong>Date</strong></td>
+                        <td><strong>Score</strong></td>
+                        <td><strong>Win or Lose</strong></td>
+                        <td><strong>Remark</strong></td>
+                    </tr>
+{%for game in games%}
+                    <tr>
+                        <td>{{game.id}}</td>
+                        <td>{{game.team}}</td>
+                        <td>{{game.dateplayed|date('Y-m-d')}}</td>
+                        <td>{{game.selfscore}}:{{game.oppscore}}</td>
+                        <td>{{game.winlose}}</td>
+                        <td>{{game.remark}}</td>
+                    </tr>
+            {%endfor%}
+                </table>
+            </div>  
+
+        </div>
+    </div>
+{% endblock %}

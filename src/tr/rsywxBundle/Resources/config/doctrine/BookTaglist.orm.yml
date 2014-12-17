@@ -1,0 +1,26 @@
+tr\rsywxBundle\Entity\BookTaglist:
+    type: entity
+    table: book_taglist
+    fields:
+        tid:
+            id: true
+            type: bigint
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        tag:
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+    manyToOne:
+        bookid:
+            targetEntity: BookBook
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                bookid:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

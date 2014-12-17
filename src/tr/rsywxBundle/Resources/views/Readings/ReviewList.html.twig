@@ -1,0 +1,19 @@
+{% block content %}
+<table class="table table-striped">
+    <tr>
+        <td><strong>Review ID</strong></td>
+        <td><strong>Review Title</strong></td>
+        <td><strong>Date</strong></td>
+    </tr>
+
+{% for review in res %}
+    <tr>
+        <td>{{review.id}}</td>
+        <td><a href="{{review.uri}}">{{review.title}}</a></td>
+        <td>{{review.datein|date('Y/m/d')}}</td>
+    </tr>
+
+{% endfor %}
+    </table>
+{% endblock %}
+

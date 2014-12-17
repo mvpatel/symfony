@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Agent list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Agentid</th>
+                <th>Agentfirstname</th>
+                <th>Agentlastname</th>
+                <th>Agentemail</th>
+                <th>Agentppassword</th>
+                <th>Agentmobile</th>
+                <th>Agentphone</th>
+                <th>Agentcar</th>
+                <th>Agentgender</th>
+                <th>Agentcarcompany</th>
+                <th>Agentwebsite</th>
+                <th>Agentcity</th>
+                <th>Agentpostcode</th>
+                <th>Agentaddress1</th>
+                <th>Agentaddress2</th>
+                <th>Agentregistrationdate</th>
+                <th>Agentlogindate</th>
+                <th>Agentage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('agent_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('agent_show', { 'id': entity.id }) }}">{{ entity.agentId }}</a></td>
+                <td>{{ entity.agentFirstname }}</td>
+                <td>{{ entity.agentLastname }}</td>
+                <td>{{ entity.agentEmail }}</td>
+                <td>{{ entity.agentpPassword }}</td>
+                <td>{{ entity.agentMobile }}</td>
+                <td>{{ entity.agentPhone }}</td>
+                <td>{{ entity.agentCar }}</td>
+                <td>{{ entity.agentGender }}</td>
+                <td>{{ entity.agentCarCompany }}</td>
+                <td>{{ entity.agentWebsite }}</td>
+                <td>{{ entity.agentCity }}</td>
+                <td>{{ entity.agentPostcode }}</td>
+                <td>{{ entity.agentAddress1 }}</td>
+                <td>{{ entity.agentAddress2 }}</td>
+                <td>{{ entity.agentRegistrationDate }}</td>
+                <td>{{ entity.agentLoginDate }}</td>
+                <td>{{ entity.agentAge }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('agent_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('agent_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('agent_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

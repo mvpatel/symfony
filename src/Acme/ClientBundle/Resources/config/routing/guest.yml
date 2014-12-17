@@ -1,0 +1,30 @@
+guest:
+    path:     /
+    defaults: { _controller: "AcmeClientBundle:Guest:index" }
+
+guest_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeClientBundle:Guest:show" }
+
+guest_new:
+    path:     /new
+    defaults: { _controller: "AcmeClientBundle:Guest:new" }
+
+guest_create:
+    path:     /create
+    defaults: { _controller: "AcmeClientBundle:Guest:create" }
+    requirements: { _method: post }
+
+guest_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeClientBundle:Guest:edit" }
+
+guest_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeClientBundle:Guest:update" }
+    requirements: { _method: post|put }
+
+guest_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeClientBundle:Guest:delete" }
+    requirements: { _method: post|delete }

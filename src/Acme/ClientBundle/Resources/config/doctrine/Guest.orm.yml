@@ -1,0 +1,68 @@
+Acme\ClientBundle\Entity\Guest:
+    type: entity
+    table: null
+    repositoryClass: Acme\ClientBundle\Entity\GuestRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        guestFirstName:
+            type: string
+            length: 255
+            column: guest_first_name
+        guestLastName:
+            type: string
+            length: 255
+            column: guest_last_name
+        gusetGender:
+            type: string
+            length: 255
+            column: Guset_gender
+        guestCar:
+            type: string
+            length: 255
+            column: guest_car
+        gusetCarName:
+            type: string
+            length: 255
+            column: guset_car_name
+        guestCarCompany:
+            type: string
+            length: 255
+            column: guest_car_company
+        gusetCompany:
+            type: string
+            length: 255
+            column: guset_company
+        guestCompanyName:
+            type: string
+            length: 255
+            column: guest_company_name
+        guestMobileNo:
+            type: string
+            length: 255
+            column: guest_mobile_no
+        guestPhoneNo:
+            type: string
+            length: 255
+            column: guest_phone_no
+        gusetRegisterDate:
+            type: string
+            length: 255
+            column: guset_register_date
+        guestLoginName:
+            type: string
+            length: 255
+            column: guest_login_name
+        guestLoginDate:
+            type: string
+            length: 255
+            column: guest_login_date
+        guestPassword:
+            type: string
+            length: 255
+            column: guest_password
+    lifecycleCallbacks: {  }

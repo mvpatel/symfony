@@ -1,0 +1,4 @@
+services:
+#    acme_client.example:
+#        class: Acme\ClientBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

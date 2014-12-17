@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block description %}<meta name="description" content="">{% endblock %}
+    <meta name="author" content="TR@SOE">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    {% block title %}<title>RSYWX | Books, Readings, Blog, Wiki</title>{% endblock %}
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/rsywx.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="/css/carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    {{ include ('trrsywxBundle:Default:nav.html.twig', {'active': active}) }}
+{% block content %}
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="rsywx_carousel">My Books</h1>
+              <p>According to an unexhaustive statistics, till {{"now"|date('Y-m-d')}}, RSYWX collects {{book.summary.bc|number_format(0,'.',',')}} books, about {{book.summary.wc|number_format(0,'.',',')}},000 words and {{book.summary.pc|number_format(0,'.',',')}} pages.</p>
+              <p>The most recent ({{book.last.purchdate|date('Y年m月d日')}}) book collected is {{book.last.author}}'s <a class="rsywx_carousel" href="{{path('book_detail', {'id':book.last.id})}}">{{book.last.title}}</a>.</p>
+              <p><a class="btn btn-large btn-primary" href="{{ path('book_list') }}"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;View all books</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="rsywx_carousel">My Readings</h1>
+              <p>Till {{"now"|date('Y-m-d')}}, RSYWX has written {{read.summary.rc|number_format(0,'.',',')}} pieces of readings.</p>
+              <p>The latest ({{read.last.datein|date('Y年m月d日')}}) commented book is <a href="{{path('book_detail', {'id':book.last.id})}}" class="rsywx_carousel">{{read.book.title}}</a>, titled as <a href="{{read.last.uri}}" class="rsywx_carousel">{{read.last.title}}</a>.</p>
+              <p><a class="btn btn-large btn-primary" href="{{ path('reading_list') }}"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;View all readings</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="rsywx_carousel">My Blog</h1>
+              <p>Your welcoming message here.</p>
+              <p><a class="btn btn-large btn-primary" href="http://www.rsywx.net/wordpress"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Enter My Blog</a></p>
+            </div>
+          </div>
+        </div>
+         <div class="item">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="rsywx_carousel">My Wiki</h1>
+              <p>Your welcoming message here. </p>
+              <p><a class="btn btn-large btn-primary" href="http://www.rsywx.net/wordpress"><span class="glyphicon glyphicon-saved"></span>&nbsp;&nbsp;Enter my Wiki</a></p>
+            </div>
+          </div>
+        </div>     
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+    <div class="jumbotron">
+        <h3>Quote Of The Day</h3>
+        {{qotd.quote}} -- <small><em>{{qotd.source}}</em></small>
+    </div>
+{% endblock %}
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      {{ include ('trrsywxBundle:Default:footer.html.twig') }}
+
+<!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/holder.js"></script>
+  </body>
+</html>

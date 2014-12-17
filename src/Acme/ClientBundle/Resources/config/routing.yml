@@ -1,0 +1,11 @@
+acme_client_guest:
+    resource: "@AcmeClientBundle/Resources/config/routing/guest.yml"
+    prefix:   /guest
+
+acme_client_client:
+    resource: "@AcmeClientBundle/Resources/config/routing/client.yml"
+    prefix:   /client
+
+acme_client_homepage:
+    path:     /client/{name}
+    defaults: { _controller: AcmeClientBundle:Default:index }

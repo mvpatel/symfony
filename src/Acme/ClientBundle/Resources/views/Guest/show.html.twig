@@ -1,0 +1,84 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Guest</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Guestfirstname</th>
+                <td>{{ entity.guestFirstName }}</td>
+            </tr>
+            <tr>
+                <th>Guestlastname</th>
+                <td>{{ entity.guestLastName }}</td>
+            </tr>
+            <tr>
+                <th>Gusetgender</th>
+                <td>{{ entity.gusetGender }}</td>
+            </tr>
+            <tr>
+                <th>Guestcar</th>
+                <td>{{ entity.guestCar }}</td>
+            </tr>
+            <tr>
+                <th>Gusetcarname</th>
+                <td>{{ entity.gusetCarName }}</td>
+            </tr>
+            <tr>
+                <th>Guestcarcompany</th>
+                <td>{{ entity.guestCarCompany }}</td>
+            </tr>
+            <tr>
+                <th>Gusetcompany</th>
+                <td>{{ entity.gusetCompany }}</td>
+            </tr>
+            <tr>
+                <th>Guestcompanyname</th>
+                <td>{{ entity.guestCompanyName }}</td>
+            </tr>
+            <tr>
+                <th>Guestmobileno</th>
+                <td>{{ entity.guestMobileNo }}</td>
+            </tr>
+            <tr>
+                <th>Guestphoneno</th>
+                <td>{{ entity.guestPhoneNo }}</td>
+            </tr>
+            <tr>
+                <th>Gusetregisterdate</th>
+                <td>{{ entity.gusetRegisterDate }}</td>
+            </tr>
+            <tr>
+                <th>Guestloginname</th>
+                <td>{{ entity.guestLoginName }}</td>
+            </tr>
+            <tr>
+                <th>Guestlogindate</th>
+                <td>{{ entity.guestLoginDate }}</td>
+            </tr>
+            <tr>
+                <th>Guestpassword</th>
+                <td>{{ entity.guestPassword }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('guest') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('guest_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

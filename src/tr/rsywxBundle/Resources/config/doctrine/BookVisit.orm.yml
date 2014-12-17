@@ -1,0 +1,15 @@
+tr\rsywxBundle\Entity\BookVisit:
+    type: entity
+    table: book_visit
+    fields:
+        bid:
+            id: true
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        visitwhen:
+            id: true
+            type: bigint
+            nullable: false
+    lifecycleCallbacks: {  }

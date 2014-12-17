@@ -1,0 +1,54 @@
+home:
+  pattern:  /
+  defaults: { _controller: trrsywxBundle:Default:index }
+
+contact:
+  pattern: /contact
+  defaults:
+    _controller: FrameworkBundle:Template:template
+    template: 'trrsywxBundle:Default:contact.html.twig'
+
+book_list:
+  pattern: /books/list/{page}/{key}
+  defaults: 
+    page: 1
+    key: null
+    _controller: trrsywxBundle:Book:list
+    
+goto_page: 
+  pattern: /books/gotopage
+  defaults: {_controller: trrsywxBundle:Book:gotopage}
+  requirements:
+    _method: POST   
+    
+books_search: 
+  pattern: /books/search
+  defaults: {_controller: trrsywxBundle:Book:search}
+  requirements: 
+    _method: POST        
+  
+book_detail:
+  pattern: /books/{id}.html
+  defaults: { _controller: trrsywxBundle:Book:detail} 
+  
+tag_list:
+  pattern: /books/tag/{page}/{tag}
+  defaults: {_controller: trrsywxBundle:Book:taglist, page:1}   
+  
+tags_add:
+  pattern: /books/addtag
+  defaults: {_controller: trrsywxBundle:Book:tagsAdd}
+  requirements: 
+    _method: POST     
+
+cover: 
+  pattern: /books/cover/{id}_{title}_{author}_{width}.png
+  defaults: {_controller: trrsywxBundle:Default:cover, width: 300}   	
+  
+reading_list:
+  pattern: /books/readings/{page}
+  defaults: {_controller: trrsywxBundle:Reading:list, page:1} 
+  
+lakers: 
+  pattern: /misc/lakers/{year}
+  defaults: {_controller: trrsywxBundle:Lakers:index}    

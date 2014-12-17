@@ -1,0 +1,100 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Agent</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Agentid</th>
+                <td>{{ entity.agentId }}</td>
+            </tr>
+            <tr>
+                <th>Agentfirstname</th>
+                <td>{{ entity.agentFirstname }}</td>
+            </tr>
+            <tr>
+                <th>Agentlastname</th>
+                <td>{{ entity.agentLastname }}</td>
+            </tr>
+            <tr>
+                <th>Agentemail</th>
+                <td>{{ entity.agentEmail }}</td>
+            </tr>
+            <tr>
+                <th>Agentppassword</th>
+                <td>{{ entity.agentpPassword }}</td>
+            </tr>
+            <tr>
+                <th>Agentmobile</th>
+                <td>{{ entity.agentMobile }}</td>
+            </tr>
+            <tr>
+                <th>Agentphone</th>
+                <td>{{ entity.agentPhone }}</td>
+            </tr>
+            <tr>
+                <th>Agentcar</th>
+                <td>{{ entity.agentCar }}</td>
+            </tr>
+            <tr>
+                <th>Agentgender</th>
+                <td>{{ entity.agentGender }}</td>
+            </tr>
+            <tr>
+                <th>Agentcarcompany</th>
+                <td>{{ entity.agentCarCompany }}</td>
+            </tr>
+            <tr>
+                <th>Agentwebsite</th>
+                <td>{{ entity.agentWebsite }}</td>
+            </tr>
+            <tr>
+                <th>Agentcity</th>
+                <td>{{ entity.agentCity }}</td>
+            </tr>
+            <tr>
+                <th>Agentpostcode</th>
+                <td>{{ entity.agentPostcode }}</td>
+            </tr>
+            <tr>
+                <th>Agentaddress1</th>
+                <td>{{ entity.agentAddress1 }}</td>
+            </tr>
+            <tr>
+                <th>Agentaddress2</th>
+                <td>{{ entity.agentAddress2 }}</td>
+            </tr>
+            <tr>
+                <th>Agentregistrationdate</th>
+                <td>{{ entity.agentRegistrationDate }}</td>
+            </tr>
+            <tr>
+                <th>Agentlogindate</th>
+                <td>{{ entity.agentLoginDate }}</td>
+            </tr>
+            <tr>
+                <th>Agentage</th>
+                <td>{{ entity.agentAge }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('agent') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('agent_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

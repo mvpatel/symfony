@@ -1,0 +1,25 @@
+tr\rsywxBundle\Entity\BookArticle:
+    type: entity
+    table: book_article
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        title:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+        datein:
+            type: date
+            nullable: false
+        uri:
+            type: string
+            length: 200
+            fixed: false
+            nullable: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,17 @@
+{% set active=1 %}
+{% extends 'trrsywxBundle:Default:index.html.twig' %} 
+
+{% block title %}<title>RSYWX | Book Details | Book Not Found...</title>{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>I am confused!</h1>
+        <p>The book ID <strong><u>{{id}}</u></strong> just inputed was not in the catalog of <a href="http://www.rsywx.net">RSYWX</a>.</p>
+        <p>Sorry to say that our speed of book collection is not able to catch up with your reading pace. Please try again sometime later. </p>
+        <p>Or, you can just visit other modules of this site. </p>
+    </div>
+
+</div>
+
+{% endblock %}

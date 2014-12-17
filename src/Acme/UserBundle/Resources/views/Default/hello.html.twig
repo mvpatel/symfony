@@ -1,0 +1,15 @@
+{# app/Resources/views/default/hello.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hi html formate is here ! Welcome to Symfony!</h1>
+    <h2>{{ name }}xx{{ name }}xx{{ name }}</h2>
+    <div>
+        Notice is here: 
+{#    {{ app.session.flashbag.get('notice') }}#}
+
+
+{#if(isset(notice))#}
+{#    {{ notice }}#}
+</div>
+{% endblock %}

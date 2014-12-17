@@ -1,3 +1,31 @@
 acme_user_homepage:
     path:     /hello/{name}
     defaults: { _controller: AcmeUserBundle:Default:index }
+    
+acme_menu:
+    path:     /menu
+    defaults: { _controller: AcmeUserBundle:Builder:menu }
+    
+local_rout:
+    path: /local
+    defaults: {_controller: AcmeUserBundle:Local:local}
+    
+welcome_rout:
+    path: /welcome/{name}
+    defaults: {_controller: AcmeUserBundle:Default:hello,_format:html}
+    
+redirect:
+    path: /redirect/{name}
+    defaults: {_controller: AcmeUserBundle:Default:redirect}
+    
+error:
+    path: /error
+    defaults: {_controller: AcmeUserBundle:Default:error}
+    
+session:
+    path: /session
+    defaults: {_controller: AcmeUserBundle:Default:session}    
+    
+getlast:
+    path: /lastone
+    defaults: {_controller: AcmeUserBundle:Default:getlast,_locale:en}

@@ -1,0 +1,118 @@
+{% set active=2 %}
+{% extends 'trrsywxBundle:Default:index.html.twig' %} 
+
+{% block title %}<title>RSYWX | Book Detail | {{book.title}}</title>{% endblock %}
+{% block description %}<meta name="description" content="{{book.title}}, {{book.author}}, {{book.region}}, {{book.publisher.name}}">{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+            {% set author=book.author%}
+            {%if author ==''%}
+            {%set author='(Anonymous)'%}
+            {%endif%}
+
+            <h1>{{book.title}}</h1>
+            <p>ISBN: {{book.isbn}}<br/>
+                by: {{author}}（{{book.region}}）{% if book.translated%} | Translator: {{book.copyrighter}}{% endif%}<br/>
+                Price: USD {{book.price|number_format(2,'.',',')}}<br/>
+                Bought at: {{book.purchdate|date('Y/m/d')}}, in {{book.place.name}}<br/>
+                <span class="glyphicon glyphicon-tags"></span> <small><strong>TAG：</strong>{% render (controller('trrsywxBundle:Book:tagsbyid', {"id":book.id})) %}</small> <a class="btn btn-info" data-toggle="modal" href="#addtag" >Add my tags »</a><br/>
+                <span class="glyphicon glyphicon-tags"></span> <small><strong>Douban Tag: </strong>{% include 'trrsywxBundle:Books:DoubanTags.html.twig' with {'tags':douban.tags} %}</small><br/>
+                <span class="glyphicon glyphicon-star"></span> <small><strong>Douban Score: </strong>{{douban.rating}}</small><br/>  
+                <span class="glyphicon glyphicon-screenshot"></span> <small><strong>Visit Count: {{vc}}</strong> (Last vist at: {{lvt}})</small>  
+
+            </p>
+        </div>
+
+        <div class="modal fade" id="addtag">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times</button>
+                        <h4 class="modal-title">Add my tags</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" method="post" action="{{path('tags_add')}}"  id='tagform' name='tagform'>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="control-label" for="newtags">Tag list:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" id="newtags" name="newtags" />
+                                        <p class="help-block">(separate with space)</p>
+                                        <input type="hidden" value="{{book.id}}" id="id" name="id"/>
+                                    </div>
+                                </div>
+                            </fieldset>    
+                            <div class="modal-footer">
+                                <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{path("cover", {'id':book.id, 'author':author, 'title':book.title}) }}" alt="{{book.title}}'s cover" title="{{book.title}}'s cover"/>
+            </div>
+            <div class="col-md-8">
+                <h2>{{book.title}}</h2>
+                <p><span class="label label-success">Introduction: </span></p><p> {{book.intro|nl2br}}</p>
+                <hr/>
+                <p><span class="label label-success">Douban Introduction: </span></p><p>{{douban.summary|nl2br}}</p>
+                <p><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;More information please visit <a href="{{douban.alternate}}">Douban's Link</a>。
+                </p>
+                <hr/>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Book Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="label label-info">Publisher:</span></td>
+                            <td>{{book.publisher.name}}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="label label-info">Publication Date:</span></td>
+                            <td>{{book.pubdate|date('Y/m/d')}}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="label label-info">Print Date:</span></td>
+                            <td>{{book.printdate|date('Y/m/d')}}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="label label-info">Version:</span></td>
+                            <td>{{book.ver}}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="label label-info">Decoration:</span></td>
+                            <td>{{book.deco}}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="label label-info">KWords:</span></td>
+                            <td>{{book.kword|number_format(0,'.',',')}}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="label label-info">Pages:</span></td>
+                            <td>{{book.page}}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="label label-info">Category:</span></td>
+                            <td>{{book.category}}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="label label-info">Location:</span></td>
+                            <td>{{book.location}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <hr class="featurette-divider">
+{% endblock %}

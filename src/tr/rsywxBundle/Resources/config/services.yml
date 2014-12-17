@@ -1,0 +1,7 @@
+parameters:
+#    trrsywx.example.class: tr\rsywxBundle\Example
+
+services:
+#    trrsywx.example:
+#        class: %trrsywx.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

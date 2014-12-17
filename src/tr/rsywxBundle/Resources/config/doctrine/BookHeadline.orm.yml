@@ -1,0 +1,35 @@
+tr\rsywxBundle\Entity\BookHeadline:
+    type: entity
+    repositoryClass: tr\rsywxBundle\Entity\ReadRepository
+    table: book_headline
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        reviewtitle:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+        createAt:
+            type: date
+            nullable: false
+            column: create_at
+        show:
+            type: boolean
+            nullable: false
+    manyToOne:
+        bookid:
+            targetEntity: BookBook
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                bookid:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

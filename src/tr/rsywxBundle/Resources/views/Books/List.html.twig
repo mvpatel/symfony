@@ -1,0 +1,88 @@
+{% set active=2 %}
+{% extends 'trrsywxBundle:Default:index.html.twig' %} 
+
+{% block title %}<title>{{ "RSYWX | Book List | Page "}}{{cur}}</title>{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>My book collection</h3>
+        </div>
+        <div class="col-md-6">
+            <h3>Page {{cur}} of {{total}}</h3>
+        </div>
+        <div class="col-md-4">
+            <form class="form-inline" method="post" action="{{path('books_search')}}" name="searchform" id="searchform">
+                <div class="form-group">
+                    <input type="text"  class="form-control" required="required" placeholder="The beginning of the title" name="key" id="key" value="{{key}}"/>
+                    <input type="hidden" name="cur" id="cur" value="{{cur}}"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+
+            </form>
+        </div>
+        <div class="col-md-4 col-md-offset-2 ">
+            <form class="form-inline" method="post" action="{{path('goto_page')}}" name="gotopageform" id="gotopageform">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Which page to go" name="page" id="page"/>
+                    <input type="hidden" name="current" id="current" value="{{cur}}"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Jump!</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td><strong>ID</strong></td>
+                        <td><strong>Title</strong></td>
+                        <td><strong>Author</strong></td>
+                        <td><strong>Purchase Date</strong></td>
+                        <td><strong>Location</strong></td>
+                    </tr>
+            {% for book in res %}
+                 {% set author=book.author%}
+            {%if author ==''%}
+            {%set author='(Anonymous)'%}
+            {%endif%}
+                    <tr>
+                        <td><a href="{{path('book_detail', {'id':book.id})}}">{{book.id}}</a></td>
+                        <td><a href="{{path('book_detail', {'id':book.id})}}">{{book.title}}</a></td>
+                        <td>{{author}}</td>
+                        <td>{{book.purchdate|date('Y-m-d')}}</td>
+                        <td>{{book.location}}</td>
+                    </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="pager">
+                <ul>
+                    <li class="previous"><a href="{{path('book_list', {'page':1, 'key':key})}}">First</a></li>
+                {%if cur==1%}
+                        <li class="previous disabled"><a href="{{path('book_list', {'page':cur-1, 'key':key})}}">Previous</a></li>
+                {%else%}
+                            <li class="previous"><a href="{{path('book_list', {'page':cur-1, 'key':key})}}">Previous</a></li>
+                {%endif%}
+                {%if cur==total%}
+                                <li class="previous disabled"><a href="{{path('book_list', {'page':cur, 'key':key})}}">Next</a></li>
+                {%else%}
+                                    <li class="previous"><a href="{{path('book_list', {'page':cur+1, 'key': key})}}">Next</a></li>
+                {%endif%}
+                                        <li class="previous"><a href="{{path('book_list', {'page':total, 'key':key})}}">Last</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+{% endblock %}
