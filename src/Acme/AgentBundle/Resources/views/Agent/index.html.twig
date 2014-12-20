@@ -10,6 +10,8 @@
                 <th>Agentid</th>
                 <th>Agentfirstname</th>
                 <th>Agentlastname</th>
+                <th>Agentlastextra</th>
+                <th>Agentlastone</th>
                 <th>Agentemail</th>
                 <th>Agentppassword</th>
                 <th>Agentmobile</th>
@@ -32,9 +34,11 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('agent_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td><a href="{{ path('agent_show', { 'id': entity.id }) }}">{{ entity.agentId }}</a></td>
+                <td>{{ entity.agentId }}</td>
                 <td>{{ entity.agentFirstname }}</td>
                 <td>{{ entity.agentLastname }}</td>
+                <td>{{ entity.agentLastextra }}</td>
+                <td>{{ entity.agentLastone }}</td>
                 <td>{{ entity.agentEmail }}</td>
                 <td>{{ entity.agentpPassword }}</td>
                 <td>{{ entity.agentMobile }}</td>

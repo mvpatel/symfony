@@ -3,7 +3,9 @@
 {% block body -%}
     <h1>Agent edit</h1>
 
-    {{ form(edit_form) }}
+{#    {{ form(edit_form) }}#}
+{{ form(edit_form, {'attr': {'novalidate': 'novalidate'}}) }}
+
 
         <ul class="record_actions">
     <li>

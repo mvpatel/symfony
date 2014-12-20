@@ -18,16 +18,14 @@ class AgentType extends AbstractType {
                 ->add('agentId')
                 ->add('agentFirstname')
                 ->add('agentLastname')
-                ->add('agentEmail', 'text', array(
-                ))
+                ->add('agentLastextra')
+                ->add('agentLastone')
+                ->add('agentEmail')
                 ->add('agentpPassword', 'password')
                 ->add('agentMobile', 'text', array(
                     'max_length' => 10,
-                    'data' => '9099',
                 ))
-                ->add('agentPhone', 'integer', array(
-//                    'trim' => true,
-                    'precision' => 2,
+                ->add('agentPhone', 'text', array(
                 ))
                 ->add('agentCar', 'choice', array(
                     'choices' => array('m' => 'Mercedes', 'b' => 'bmw', 'a' => 'Audi'),
@@ -44,6 +42,7 @@ class AgentType extends AbstractType {
                 ))
                 ->add('agentWebsite', 'language')
                 ->add('agentCity', 'country')
+//                ->add('agentCity', 'language', array('empty_data' => 'empty'))
                 ->add('agentPostcode')
                 ->add('agentAddress1', 'text', array(
 //                    'divisor' => 100,

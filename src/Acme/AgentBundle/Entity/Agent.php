@@ -3,7 +3,8 @@
 namespace Acme\AgentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Agent
  *
@@ -30,7 +31,6 @@ class Agent
 
     /**
      * @var string
-     *
      * @ORM\Column(name="agent_firstname", type="string", length=255)
      */
     private $agentFirstname;
@@ -45,7 +45,20 @@ class Agent
     /**
      * @var string
      *
-     * @ORM\Column(name="agent_email", type="string", length=255)
+     * @ORM\Column(name="agent_Lastextra", type="string", length=255)
+     */
+    private $agentLastextra;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="agent_Lastone", type="string", length=255)
+     */
+    private $agentLastone;
+
+    /**
+     * @var string
+     * @ORM\Column(name="agent_email", type="string", length=255, unique=true)
      */
     private $agentEmail;
 
@@ -570,5 +583,51 @@ class Agent
     public function getAgentAge()
     {
         return $this->agentAge;
+    }
+
+    /**
+     * Set agentLastextra
+     *
+     * @param string $agentLastextra
+     * @return Agent
+     */
+    public function setAgentLastextra($agentLastextra)
+    {
+        $this->agentLastextra = $agentLastextra;
+
+        return $this;
+    }
+
+    /**
+     * Get agentLastextra
+     *
+     * @return string 
+     */
+    public function getAgentLastextra()
+    {
+        return $this->agentLastextra;
+    }
+
+    /**
+     * Set agentLastone
+     *
+     * @param string $agentLastone
+     * @return Agent
+     */
+    public function setAgentLastone($agentLastone)
+    {
+        $this->agentLastone = $agentLastone;
+
+        return $this;
+    }
+
+    /**
+     * Get agentLastone
+     *
+     * @return string 
+     */
+    public function getAgentLastone()
+    {
+        return $this->agentLastone;
     }
 }

@@ -143,7 +143,7 @@ class AgentController extends Controller
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
-        
+
         return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
@@ -212,8 +212,7 @@ class AgentController extends Controller
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
-        
-        
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('AcmeAgentBundle:Agent')->find($id);

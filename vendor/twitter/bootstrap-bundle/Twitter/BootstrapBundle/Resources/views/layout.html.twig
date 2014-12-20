@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {% block container %}{% endblock %}
+        <footer>{% block footer %}<p>&copy; Company 2014</p>{% endblock %}</footer>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ include('TwitterBootstrapBundle::html5shiv.html.twig') }}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ twitter_assets('stylesheets') }}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ twitter_assets('javascripts') }}
+    {{ parent() }}
+{% endblock %}
